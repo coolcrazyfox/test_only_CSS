@@ -1,0 +1,115 @@
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #131312;
+
+}
+
+.wrapper {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+   font-family: Arial , sans-serif;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+}
+.button:before, .button:after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    top: -10px;
+    left: 50%;
+    z-index: 1;
+    transition: all 0.8s ease 0s;
+    margin: 0px 0px 0px -40px;
+
+}
+.button:before{
+    animation: rotate 18s infinite linear;
+}
+.button:after{
+    animation: rotate 25s infinite linear;
+}
+.button_text {
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+    border-radius: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: rgba(255, 228, 196, 0.61);
+    letter-spacing: 10px;
+    transition: all 1s ease 0s;
+    top: 0;
+    overflow: hidden;
+}
+.button_text:before, .button_text:after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #131312;
+    transition: all 0.8s ease 0s;
+}
+.button_text:before{
+    left: 0;
+    z-index: 2;
+}
+.button_text:after{
+    right: 0;
+}
+.button_text span{
+    position: relative;
+    z-index: 2;
+}
+.button:hover:before, .button:hover:after{
+    left: 100%;
+    opacity: 0;
+}
+.button:hover .button_text{
+    top: -10px;
+    color: cornflowerblue;
+    transition: all 0.5s ease 0.2s;
+    box-shadow: 0 5px 0px 0 #0c5b52;
+}
+.button:hover .button_text:before,
+.button:hover .button_text:after{
+    background-color:greenyellow ;
+}
+
+.button:hover .button_text:before{
+    width: 100%;
+}
+.button:active .button_text{
+    top: -7px;
+    transition: all 0.1s ease 0s;
+    box-shadow: 0 2px 0px 0 #0c5b52;
+}
+@keyframes rotate{
+    0% {transform: rotate(0deg) ;
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
